@@ -1,7 +1,5 @@
-"""
- Created by 七月 on 2018/1/26.
- 微信公众号：林间有风
-"""
+#! /usr/bin/env python3
+
 
 from app import create_app
 
