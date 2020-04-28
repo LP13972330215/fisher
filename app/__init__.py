@@ -14,13 +14,14 @@ mail = Mail()
 # cache = Cache(config={'CACHE_TYPE': 'simple'})
 limiter = Limiter()
 
-def create_app():
-    app = Flask(__name__)
-    app.config.from_object('app.secure')
-    app.config.from_object('app.setting')
-    register_blueprint(app)
 
-    db.init_app(app)
+def create_app():
+    app = Flask(__name__)  #初始化app
+    app.config.from_object('app.secure')
+    app.config.from_object('app.setting')#读取配置
+    register_blueprint(app) #注册蓝图
+
+    db.init_app(app) #将flask 对象app注册到db中
     login_manager.init_app(app)
     login_manager.login_view = 'web.login'
     login_manager.login_message = '请先登录或注册'
@@ -32,7 +33,7 @@ def create_app():
     # 移情
     # 同理心
     with app.app_context():
-        db.create_all()
+        db.create_all() #创建数据库
     return app
 
 
