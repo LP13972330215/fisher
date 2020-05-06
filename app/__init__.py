@@ -32,6 +32,7 @@ def create_app():
     # 认同感
     # 移情
     # 同理心
+    # db.create_all(app=app) 这两种方法都可以
     with app.app_context():
         db.create_all() #创建数据库
     return app
