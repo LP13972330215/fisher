@@ -5,10 +5,9 @@ from flask import Flask
 from flask_login import LoginManager
 from app.models.book import db
 from flask_mail import Mail
-from flask_cache import Cache
+# from flask_cache import Cache
 from app.libs.limiter import Limiter
 
-__author__ = '七月'
 login_manager = LoginManager()
 mail = Mail()
 # cache = Cache(config={'CACHE_TYPE': 'simple'})
@@ -28,10 +27,7 @@ def create_app():
 
     mail.init_app(app)
 
-    # RPG 代入感
-    # 认同感
-    # 移情
-    # 同理心
+
     # db.create_all(app=app) 这两种方法都可以
     with app.app_context():
         db.create_all() #创建数据库
